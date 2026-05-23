@@ -1,0 +1,12 @@
+<div class="col">
+    <div class="card h-100">
+        <img src="{{ asset(product.image ?: 'images/item.png') }}" class="card-img-top product-card-img" alt="{{ product.name }}">
+        <div class="card-body d-flex flex-column">
+            <span class="badge bg-primary mb-2 align-self-start">{{ product.category.name }}</span>
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text text-muted flex-grow-1">{{ product.description|length > 95 ? product.description|slice(0, 95) ~ '...' : product.description }}</p>
+            <p class="card-text fw-bold text-success">${{ product.price|number_format(2, '.', ',') }}</p>
+            <a href="{{ path('app_product_show', {id: product.id}) }}" class="btn btn-outline-primary">View Details</a>
+        </div>
+    </div>
+</div>
